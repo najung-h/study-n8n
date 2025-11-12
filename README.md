@@ -17,12 +17,15 @@ This repository is designed to help you master n8n through:
 ## 📖 Table of Contents
 
 1. [Getting Started](#getting-started)
-2. [Core Concepts](#core-concepts)
-3. [Workflow Examples](#workflow-examples)
-4. [Best Practices](#best-practices)
-5. [Resources](#resources)
+2. [Learning Path](./docs/learning-path.md) - Structured guide from beginner to expert
+3. [Core Concepts](#core-concepts)
+4. [Workflow Examples](#workflow-examples)
+5. [Best Practices](#best-practices)
+6. [Resources](#resources)
 
 ## 🚀 Getting Started
+
+**New to n8n?** Follow our [structured learning path](./docs/learning-path.md) for a week-by-week guide from beginner to expert!
 
 ### Installation Options
 
@@ -111,6 +114,15 @@ This repository is designed to help you master n8n through:
 
 ## 📚 Resources
 
+### Study Materials in This Repository
+- **[Getting Started Guide](./docs/getting-started.md)** - Your first workflow step-by-step
+- **[Learning Path](./docs/learning-path.md)** - Structured curriculum with checkpoints
+- **[Core Concepts](./docs/core-concepts.md)** - Deep dive into n8n fundamentals
+- **[Best Practices](./docs/best-practices.md)** - Production-ready patterns
+- **[Advanced Topics](./docs/advanced-topics.md)** - Scaling, optimization, and custom nodes
+- **[Glossary](./docs/glossary.md)** - Complete terminology reference
+- **[Workflow Examples](./examples/README.md)** - Importable workflow templates
+
 ### Official Documentation
 - [n8n Documentation](https://docs.n8n.io/)
 - [n8n Community](https://community.n8n.io/)
@@ -122,15 +134,45 @@ This repository is designed to help you master n8n through:
 - [YouTube Tutorials](https://www.youtube.com/c/n8n-io)
 
 ### Advanced Topics
-- Custom Nodes Development
-- Self-hosting Configuration
-- Scaling n8n
-- API Integration Patterns
+- [Custom Nodes Development](./docs/advanced-topics.md#custom-node-development)
+- [Self-hosting Configuration](./docs/advanced-topics.md#scaling-n8n)
+- [Scaling n8n](./docs/advanced-topics.md#scaling-n8n)
+- [API Integration Patterns](./docs/advanced-topics.md#integration-patterns)
 
 ## 🤝 Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on:
+- Adding workflow examples
+- Improving documentation
+- Sharing tips and tricks
+- Reporting issues
 
 Feel free to add your own workflow examples, notes, and learnings to this repository.
 
 ## 📝 License
 
 This study repository is for educational purposes.
+
+---
+
+## 🚦 Quick Start Paths
+
+### Path 1: I Want to Learn n8n
+1. Read [Getting Started](./docs/getting-started.md)
+2. Follow the [Learning Path](./docs/learning-path.md)
+3. Import [example workflows](./examples/README.md)
+4. Build your first automation!
+
+### Path 2: I Have a Specific Task
+1. Check [workflow examples](./examples/README.md) for similar patterns
+2. Review [best practices](./docs/best-practices.md) for the task type
+3. Use [core concepts](./docs/core-concepts.md) as reference
+4. Build and test your workflow
+
+### Path 3: I'm Already Using n8n
+1. Explore [advanced topics](./docs/advanced-topics.md)
+2. Review [best practices](./docs/best-practices.md) for optimization
+3. Learn about [scaling](./docs/advanced-topics.md#scaling-n8n)
+4. Consider [contributing](./CONTRIBUTING.md) your knowledge!
+
+**Questions?** Check the [Glossary](./docs/glossary.md) or ask in the [n8n Community](https://community.n8n.io/)
