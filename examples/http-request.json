@@ -1,0 +1,157 @@
+{
+  "name": "HTTP Request Example - n8n Study",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://jsonplaceholder.typicode.com/users/1",
+        "options": {}
+      },
+      "id": "2",
+      "name": "Get User Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 300],
+      "notes": "Fetches user data from JSONPlaceholder API"
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "userName",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "name": "company",
+              "value": "={{ $json.company.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3",
+      "name": "Extract Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "notes": "Extracts specific fields from the API response"
+    },
+    {
+      "parameters": {
+        "url": "https://jsonplaceholder.typicode.com/posts",
+        "options": {
+          "queryParameters": {
+            "parameters": [
+              {
+                "name": "userId",
+                "value": "={{ $json.id }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "4",
+      "name": "Get User Posts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [450, 450],
+      "notes": "Fetches posts for the user"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get user data from first path\nconst userData = $('Extract Fields').item.json;\n\n// Get posts from second path\nconst posts = $input.all();\n\n// Combine the data\nreturn {\n  user: userData,\n  totalPosts: posts.length,\n  posts: posts.map(post => ({\n    id: post.json.id,\n    title: post.json.title,\n    preview: post.json.body.substring(0, 50) + '...'\n  }))\n};"
+      },
+      "id": "5",
+      "name": "Combine Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 375],
+      "notes": "Merges user data with their posts"
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get User Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Data": {
+      "main": [
+        [
+          {
+            "node": "Extract Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get User Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Fields": {
+      "main": [
+        [
+          {
+            "node": "Combine Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get User Posts": {
+      "main": [
+        [
+          {
+            "node": "Combine Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "instanceId": "study-example"
+  },
+  "tags": [
+    {
+      "name": "beginner",
+      "id": "1"
+    },
+    {
+      "name": "http",
+      "id": "2"
+    },
+    {
+      "name": "api",
+      "id": "3"
+    }
+  ]
+}
